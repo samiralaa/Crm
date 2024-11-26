@@ -51,7 +51,7 @@ class DashboardController extends Controller
      */
     public function index(): \Illuminate\View\View
     {
-    
+    // dd('here');
         $this->storeInCacheUsableVariables();
 
         $graph = new GraphDataService();

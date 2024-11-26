@@ -64,7 +64,7 @@ php artisan serve
 #### 6. Login to SoftCRM by using this account:
 ```
 user: admin@admin.com
-password: admin
+password: password
 ```
 
 

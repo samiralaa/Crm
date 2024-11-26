@@ -94,7 +94,7 @@ class ProductsController extends Controller
     {
         // Store the product.
         $this->dispatchSync(new StoreProductJob($request->validated(), auth()->user()));
-
+// dd($request->validated());
         // Store a system log.
         $this->dispatchSync(new StoreSystemLogJob('Product has been added.', 201, auth()->user()));
 
