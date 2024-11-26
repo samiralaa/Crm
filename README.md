@@ -1,66 +1,72 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
+# SoftCRM System in Laravel 11 with PHP [>8.2]
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <img src="https://i.ibb.co/z8ssKdN/Przechwytywanie.jpg">
 </p>
 
-## About Laravel
+SoftCRM is a comprehensive database system designed to streamline B2B company management. By analyzing customer interactions and history, it helps businesses enhance client relationships and improve customer retention. With a focus on driving sustainable sales growth, SoftCRM provides essential tools for managing customer data, tracking sales, and planning strategies, ensuring efficient and profitable operations.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+# Project Overview
+This repository marks the beginning of an exciting journey, with its first commit made on July 25, 2017. Since then, it has evolved significantly, reflecting countless hours of dedication, hard work, and passion for crafting a valuable tool.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+I invite you to explore the project and appreciate the effort that has gone into its development. Your feedback and contributions are highly valued as we continue to enhance and grow this project together.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+<img src="https://i.imgur.com/6LLw8MX.png">
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Functionality:
+#### Core Features:
+- **Customer management**: Efficiently manage customer data, track interactions, and maintain detailed customer profiles to enhance relationships and improve customer retention.
+- **Employee management**: Organize employee information, assign tasks, and monitor performance to optimize workforce productivity and collaboration.
+- **Business management**: Oversee the overall business operations, manage company data, and streamline communication between departments.
+- **Contract management between companies**: Handle contracts with partner companies, track agreement statuses, and ensure compliance with legal requirements.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+#### Marketing:
+- **Product management**: Maintain a detailed inventory of products, track availability, and manage pricing to align with market demands.
+- **Task management for employees**: Assign and monitor tasks related to marketing campaigns, ensuring that employees stay on top of their responsibilities.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+#### Sales:
+- **Finance management**: Keep track of all financial transactions, manage budgets, and ensure that financial resources are used efficiently.
+- **Sales management**: Oversee the entire sales process, from lead generation to closing deals, and track performance metrics to drive growth.
 
-## Laravel Sponsors
+#### Statistics:
+- **Detailed statistics for every day, including yesterday, weekly, and yearly summaries**: Generate comprehensive reports showing key performance indicators (KPIs) to help you analyze trends and make informed business decisions.
+- **Total count of all operations within the system**: Get a complete overview of all activities happening within the system to monitor efficiency and operational output.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-### Premium Partners
+####  Keep in mind that this is not the end of the functionality of this system because I am constantly developing it!
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## Installation
 
-## Contributing
+#### 1. To install run the following commands in a working directory: 
+```
+https://github.com/samiralaa/Crm
+```
+#### 2. Now run and make sure you have the composer installed on your machine:
+```
+composer install 
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+#### 3. In the next step, open the .env.example file. Change the data of this file to .env and the details of the site, database and email settings.
+```
+cp .env.example .env 
+```
 
-## Code of Conduct
+#### 4. Run the command from the main project folder to create database tables. This is our custom command to process all missing functions.
+```
+php artisan process-softcrm
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+#### 5. that's all ! Now start the laravel server using the command:
+```
+php artisan serve
+```
 
-## Security Vulnerabilities
+#### 6. Login to SoftCRM by using this account:
+```
+user: admin@admin.com
+password: admin
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
+# Now you should then be able to access SoftCRM easily!
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
