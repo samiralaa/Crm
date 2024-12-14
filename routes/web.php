@@ -11,6 +11,7 @@
 |
 */
 
+use App\Http\Controllers\Calender\FullCalenderController;
 use App\Http\Controllers\CRM\AuthController;
 use App\Http\Controllers\CRM\ClientController;
 use App\Http\Controllers\CRM\CompaniesController;
@@ -23,6 +24,7 @@ use App\Http\Controllers\CRM\SettingsController;
 use App\Http\Controllers\CRM\TasksController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
+
 
 Route::get('login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('login/process', [AuthController::class, 'processLoginAdmin'])->name('login.process');
@@ -102,7 +104,6 @@ Route::group(['prefix' => 'sales'], function () {
     Route::put('update/{sale}', [SalesController::class, 'processUpdateSale'])->name('sales.update');
     Route::delete('delete/{sale}', [SalesController::class, 'processDeleteSale'])->name('sales.delete');
     Route::post('set-active/{sale}', [SalesController::class, 'processSaleSetIsActive'])->name('sales.set.active');
-
 });
 
 Route::group(['prefix' => 'products'], function () {
@@ -131,3 +132,9 @@ Route::group(['prefix' => 'settings'], function () {
     Route::get('/', [SettingsController::class, 'processListOfSettings'])->name('settings.index');
     Route::put('update', [SettingsController::class, 'processUpdateSettings'])->name('settings.update');
 });
+
+
+Route::get('calendar/index', [FullCalenderController::class, 'index'])->name('calendar.index');
+Route::post('calendar', [FullCalenderController::class, 'store'])->name('calendar.store');
+Route::patch('calendar/update/{id}', [FullCalenderController::class, 'update'])->name('calendar.update');
+Route::delete('calendar/destroy/{id}', [FullCalenderController::class, 'destroy'])->name('calendar.destroy');

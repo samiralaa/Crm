@@ -2,7 +2,7 @@
     <div class="p-3 text-3xl font-bold flex items-center">
         <i class="fas fa-user-shield mr-2"></i> SoftCRM
     </div>
-    <nav class="flex-1 overflow-y-auto border-t border-gray-700 mt-1">
+    <nav class="flex-1 overflow-y-auto border-t border-gray-700 mt-1 bg-gray-800">
         <ul>
             <li class="p-4 hover:bg-gray-700 flex items-center border-b border-gray-700">
                 <i class="fas fa-tachometer-alt mr-3"></i>
