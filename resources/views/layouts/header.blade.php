@@ -1,4 +1,4 @@
-<header class="shadow-md flex items-center justify-between p-4 bg-gray-800 text-white transform transition-transform duration-200 ease-in-out z-50 md:static md:translate-x-0">
+<header class="shadow-md flex items-center justify-between p-4 bg-gray-800 text-white transform transition-transform duration-200 ease-in-out z-50 md:static md:translate-x-0" style = "background-color: rgb(17, 0, 255)">
     <div class="flex items-center">
         <button @click="sidebarOpen = !sidebarOpen" class="text-gray-500 focus:outline-none md:hidden mr-4">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

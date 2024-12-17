@@ -12,6 +12,7 @@ use App\Queries\SalesQueries;
 use App\Queries\SettingsQueries;
 use App\Queries\SystemLogsQueries;
 use App\Queries\TasksQueries;
+use App\Queries\CalendarQueries;
 use App\Services\CalculateCashService;
 use App\Services\ClientService;
 use App\Services\CompaniesService;
@@ -85,6 +86,7 @@ class DashboardController extends Controller
         Cache::put('countProducts', ProductsQueries::countAll(), env('CACHE_TIME'));
         Cache::put('countTasks', TasksQueries::countAll(), env('CACHE_TIME'));
         Cache::put('countSales', SalesQueries::countAll(), env('CACHE_TIME'));
+        Cache::put('countCalenders', CalendarQueries::countAll(), env('CACHE_TIME'));
         Cache::put('deactivatedCompanies', CompaniesQueries::getDeactivated(), env('CACHE_TIME'));
         Cache::put('todayIncome', $this->calculateCashService->loadCountTodayIncome(), env('CACHE_TIME'));
         Cache::put('yesterdayIncome', $this->calculateCashService->loadCountYesterdayIncome(), env('CACHE_TIME'));

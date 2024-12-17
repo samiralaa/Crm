@@ -1,10 +1,12 @@
 <?php
+
 namespace App\Http\Controllers\Calender;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Event;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class FullCalenderController extends Controller
 {
@@ -12,7 +14,7 @@ class FullCalenderController extends Controller
     {
         // Fetch all events to display on the calendar
         $events = Event::all();
-     
+
         return view('crm.calendar.fullcalender', ['events' => $events]);
     }
 
@@ -25,11 +27,17 @@ class FullCalenderController extends Controller
             'end' => 'required|date',
         ]);
 
+        // Calculate the duration in hours
+        $start = Carbon::parse($validated['start']);
+        $end = Carbon::parse($validated['end']);
+        $duration = $end->diffInHours($start);  // Duration in hours
+
         // Create a new event
         $booking = Event::create([
             'title' => $validated['title'],
             'start' => $validated['start'],
             'end' => $validated['end'],
+            'duration' => $duration, // Store the duration
         ]);
 
         $color = null;
@@ -44,9 +52,9 @@ class FullCalenderController extends Controller
             'end' => $booking->end,
             'title' => $booking->title,
             'color' => $color ? $color : '',
+            'duration' => $booking->duration, // Return the duration
         ]);
     }
-
     public function update(Request $request, $id)
     {
         $booking = Event::find($id);
@@ -79,7 +87,7 @@ class FullCalenderController extends Controller
                 'error' => 'Unable to locate the event',
             ], 404);
         }
-        
+
         $booking->delete();
         return response()->json(['success' => 'Event deleted']);
     }
