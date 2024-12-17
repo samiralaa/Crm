@@ -15,7 +15,7 @@ class AdminAccSeeder extends Seeder
             'email' => 'admin@admin.com',
             'password' => Hash::make('password'),
             'role_type' => 2 // admin
-            ];
+        ];
 
         DB::table('admins')->insert($admin);
     }

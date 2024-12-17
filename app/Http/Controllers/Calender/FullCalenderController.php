@@ -69,7 +69,6 @@ class FullCalenderController extends Controller
             'start' => 'required|date',
             'end' => 'required|date',
         ]);
-
         // Update the event
         $booking->update([
             'start' => $validated['start'],

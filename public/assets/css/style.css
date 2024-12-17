@@ -1,0 +1,92 @@
+/* عام لتنسيق الخلفية والخطوط */
+
+
+/* لتوسيط الكارد */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* تصميم الكارد (الإطار) */
+.card {
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+    overflow: hidden;
+}
+
+.card-header {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+/* لتنسيق الحقول */
+.form-label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-control,
+.form-select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* زر الإرسال */
+.btn {
+    display: inline-block;
+    background-color: #28a745;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #218838;
+}
+
+/* لتنسيق الـ Checkbox */
+.form-check {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.form-check-input {
+    margin-right: 10px;
+}
+
+.form-check-label {
+    font-weight: normal;
+    color: #555;
+}

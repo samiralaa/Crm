@@ -26,15 +26,15 @@ class CalculateCashService
         $salesSum = 0;
         $financesSum = 0;
 
-        foreach($products as $product) {
+        foreach ($products as $product) {
             $productSum += $product->price * $product->count;
         }
 
-        foreach($finances as $finance) {
+        foreach ($finances as $finance) {
             $financesSum += $finance->net;
         }
 
-        foreach($sales as $sale) {
+        foreach ($sales as $sale) {
             $salesSum += $sale->price * $sale->quantity;
         }
 
@@ -55,14 +55,14 @@ class CalculateCashService
         $salesSum = 0;
         $financesSum = 0;
 
-        foreach($products as $product) {
+        foreach ($products as $product) {
             $productSum += $product->price * $product->count;
         }
 
-        foreach($sales as $sale) {
+        foreach ($sales as $sale) {
             $salesSum += $sale->price * $sale->quantity;
         }
-        foreach($finances as $finance) {
+        foreach ($finances as $finance) {
             $financesSum += $finance->net;
         }
 
@@ -83,12 +83,12 @@ class CalculateCashService
         $productSum = 0;
         $financesSum = 0;
 
-        foreach($products as $product) {
+        foreach ($products as $product) {
             $productSum += $product->price * $product->count;
-            foreach($sales as $sale) {
+            foreach ($sales as $sale) {
                 $salesSum += $product->price * $sale->quantity;
             }
-            foreach($finances as $finance) {
+            foreach ($finances as $finance) {
                 $financesSum += $finance->net;
             }
         }
@@ -115,32 +115,33 @@ class CalculateCashService
         return $counter;
     }
 
-    public function loadTaskEveryMonth($isCompleted) {
+    public function loadTaskEveryMonth($isCompleted)
+    {
 
         $dates = collect();
-        foreach( range( -6, 0 ) AS $i ) {
-            $date = Carbon::now()->addDays( $i )->format( 'Y-m-d' );
-            $dates->put( $date, 0);
+        foreach (range(-6, 0) as $i) {
+            $date = Carbon::now()->addDays($i)->format('Y-m-d');
+            $dates->put($date, 0);
         }
 
-        if($isCompleted) {
-            $posts = TasksModel::where( 'created_at', '>=', $dates->keys()->first() )->where('completed', '=', 1)
-                ->groupBy( 'date' )
-                ->orderBy( 'date' )
-                ->get( [
-                    DB::raw( 'DATE( created_at ) as date' ),
-                    DB::raw( 'COUNT( * ) as "count"' )
-                ] )
-                ->pluck( 'count', 'date' );
+        if ($isCompleted) {
+            $posts = TasksModel::where('created_at', '>=', $dates->keys()->first())->where('completed', '=', 1)
+                ->groupBy('date')
+                ->orderBy('date')
+                ->get([
+                    DB::raw('DATE( created_at ) as date'),
+                    DB::raw('COUNT( * ) as "count"')
+                ])
+                ->pluck('count', 'date');
         } else {
-            $posts = TasksModel::where( 'created_at', '>=', $dates->keys()->first() )
-                ->groupBy( 'date' )
-                ->orderBy( 'date' )
-                ->get( [
-                    DB::raw( 'DATE( created_at ) as date' ),
-                    DB::raw( 'COUNT( * ) as "count"' )
-                ] )
-                ->pluck( 'count', 'date' );
+            $posts = TasksModel::where('created_at', '>=', $dates->keys()->first())
+                ->groupBy('date')
+                ->orderBy('date')
+                ->get([
+                    DB::raw('DATE( created_at ) as date'),
+                    DB::raw('COUNT( * ) as "count"')
+                ])
+                ->pluck('count', 'date');
         }
 
         $dates = $dates->merge($posts)->toArray();

@@ -16,6 +16,7 @@ use App\Http\Controllers\CRM\AuthController;
 use App\Http\Controllers\CRM\ClientController;
 use App\Http\Controllers\CRM\CompaniesController;
 use App\Http\Controllers\CRM\DealsController;
+use App\Http\Controllers\CRM\Emails\EmailTemplateController;
 use App\Http\Controllers\CRM\EmployeesController;
 use App\Http\Controllers\CRM\FinancesController;
 use App\Http\Controllers\CRM\ProductsController;
@@ -24,6 +25,7 @@ use App\Http\Controllers\CRM\SettingsController;
 use App\Http\Controllers\CRM\TasksController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
+
 
 
 Route::get('login', [AuthController::class, 'showLoginForm'])->name('login');
@@ -133,6 +135,14 @@ Route::group(['prefix' => 'settings'], function () {
     Route::put('update', [SettingsController::class, 'processUpdateSettings'])->name('settings.update');
 });
 
+Route::group(['prefix' => 'email-templates'], function () {
+    Route::get('/',[EmailTemplateController::class,'processListOfEmailTemplates'])->name('email-templates.index');
+    Route::get('create', [EmailTemplateController::class, 'processRenderCreateForm'])->name('email-templates.create.form');
+    Route::post('store', [EmailTemplateController::class, 'processStoreEmailTemplate'])->name('email-templates.store');
+    Route::get('update/{emailTemplate}', [EmailTemplateController::class, 'processRenderUpdateForm'])->name('email-templates.edit.form');
+    Route::put('update/{emailTemplate}', [EmailTemplateController::class, 'processUpdateEmailTemplate'])->name('email-templates.update');
+    Route::delete('delete/{emailTemplate}', [EmailTemplateController::class, 'processDeleteEmailTemplate'])->name('email-templates.delete');
+});
 
 Route::get('calendar/index', [FullCalenderController::class, 'index'])->name('calendar.index');
 Route::post('calendar', [FullCalenderController::class, 'store'])->name('calendar.store');

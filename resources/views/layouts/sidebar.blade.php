@@ -1,12 +1,7 @@
 <html>
-    <head>
 
-    </head>
-<style>
-   
-</style>
     <body>
-        
+
         <aside :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'" class="fixed inset-y-0 left-0 w-64 bg-gray-800 text-white transform transition-transform duration-200 ease-in-out z-50 md:static md:translate-x-0" style = "background-color: rgb(0, 165, 82)" >
             <div class="p-3 text-3xl font-bold flex items-center">
                 <i class="fas fa-user-shield mr-2"></i> SoftCRM
@@ -86,8 +81,17 @@
                             <span>Send Message</span>
                         </a>
                     </li>
+
+                    <li class="p-4 hover:bg-gray-700 flex items-center border-b border-gray-700">
+                        <i class="fas fa-paper-plane mr-3"></i>
+                        <a href="{{ route('email-templates.index') }}">
+                            <span> Email templates: </span>
+                        </a>
+                    </li>
+
+
                 </ul>
-        
+
                 <ul class="mt-2 text-[#dee7f1] ml-3 text-sm">
                     <li class="text-lg font-semibold mb-3 mt-4">
                         Information's
@@ -118,9 +122,10 @@
                         <i class="fa fa-file-alt mr-2" aria-hidden="true"></i>
                         System logs: <span class="ml-1">{{ cache()->get('countSystemLogs') }}</span>
                     </li>
+
                 </ul>
             </nav>
         </aside>
-        
+
     </body>
 </html>

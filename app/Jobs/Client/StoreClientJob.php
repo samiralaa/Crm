@@ -37,7 +37,7 @@ class StoreClientJob implements ShouldQueue
     {
         $model = new ClientsModel();
 
-        foreach($this->validatedData as $key => $value) {
+        foreach ($this->validatedData as $key => $value) {
             $model->$key = $value;
         }
 
