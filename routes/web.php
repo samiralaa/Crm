@@ -136,7 +136,7 @@ Route::group(['prefix' => 'settings'], function () {
 });
 
 Route::group(['prefix' => 'email-templates'], function () {
-    Route::get('/',[EmailTemplateController::class,'processListOfEmailTemplates'])->name('email-templates.index');
+    Route::get('/', [EmailTemplateController::class, 'processListOfEmailTemplates'])->name('email-templates.index');
     Route::get('create', [EmailTemplateController::class, 'processRenderCreateForm'])->name('email-templates.create.form');
     Route::post('store', [EmailTemplateController::class, 'processStoreEmailTemplate'])->name('email-templates.store');
     Route::get('update/{emailTemplate}', [EmailTemplateController::class, 'processRenderUpdateForm'])->name('email-templates.edit.form');

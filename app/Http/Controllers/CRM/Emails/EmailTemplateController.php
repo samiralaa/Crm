@@ -38,4 +38,11 @@ class EmailTemplateController extends Controller
         EmailTemplate::create($request->all());
         return redirect()->route('email-templates.index')->with('success', 'Template created successfully');
     }
+
+    public function processDeleteEmailTemplate ($id)
+    {
+        $emailtemplate = EmailTemplate::find($id);
+        $emailtemplate->delete();
+        return redirect()->route('email-templates.index')->with('success', 'Template deleted successfully');
+    }
 }
